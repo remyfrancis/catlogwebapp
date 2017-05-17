@@ -23,7 +23,7 @@ var maintenanceRouter = require('./routes/maintenanceRouter');
 var plumbingRouter = require('./routes/plumbingRouter');
 var riggingRouter = require('./routes/riggingRouter');
 var safetyRouter = require('./routes/safetyRouter');
-
+var cart = require('./routes/cart');
 
 var mongoose = require('mongoose');
 

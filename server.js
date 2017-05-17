@@ -42,7 +42,7 @@ app.get('/', (req, res) => {
   console.log(__dirname);
   // Note: __dirname is directory that contains the JavaScript source code. Try logging it and see what you get!
   // Mine was '/Users/zellwk/Projects/demo-repos/crud-express-mongo' for this app.
-})
+});
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));

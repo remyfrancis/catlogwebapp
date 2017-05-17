@@ -4,6 +4,8 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var cors = require('cors');
+var mongodb = require('mongodb');
+var database = require('./config');
 
 var index = require('./routes/index');
 //var users = require('./routes/users');
@@ -25,11 +27,13 @@ var safetyRouter = require('./routes/safetyRouter');
 
 var mongoose = require('mongoose');
 
-var ObjectID = mongodb.ObjectID;
-var ITEM_COLLECTION = "items";
 
 const express = require('express');
 const app = express();
+
+
+//var db = mongoose.connection;
+mongoose.connect('mongodb://remz:remz2@ds143211.mlab.com:43211/heroku_zs29t624');
 
 app.use(cors());
 
@@ -42,7 +46,7 @@ app.get('/', (req, res) => {
   console.log(__dirname);
   // Note: __dirname is directory that contains the JavaScript source code. Try logging it and see what you get!
   // Mine was '/Users/zellwk/Projects/demo-repos/crud-express-mongo' for this app.
-})
+});
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -56,24 +60,12 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-// Create a database variable outside of the database connection callback to reuse the connection pool in the app.
-var db;
-
-// Connect to the database before starting the application server.
-mongodb.MongoClient.connect(process.env.MONGODB_URI, function (err, database) {
-  if (err) {
-    console.log(err);
-    process.exit(1);
-  }
-
-  // Save database object from the callback for reuse.
-  db = database;
-  console.log("Database connection ready");
 
   // Initialize the app.
   var server = app.listen(process.env.PORT || 8080, function () {
     var port = server.address().port;
     console.log("App now running on port", port);
+  });
 
 app.use('/', index);
 //app.use('/users', users);
@@ -99,7 +91,7 @@ app.use(function(req, res, next) {
   next(err);
 });
 
-// error handlers
+//error handlers
 // development error handler
 // will print stacktrace
 if (app.get('env') === 'development') {
@@ -112,15 +104,6 @@ if (app.get('env') === 'development') {
   });
 }
 
-// CORS
-app.use(function (req, res, next) {
-
-    //headers that enable corse
-    res.header('Access-Control-Allow-Origin', '*');
-    res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE,PATCH');
-    res.header('Access-Control-Allow-Headers', 'Content-Type, Authorization');
-    next();
-});
 
 // production error handler
 // no stacktraces leaked to user

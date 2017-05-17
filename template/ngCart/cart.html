@@ -1,0 +1,142 @@
+<!-- Navigation -->
+<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+<div class="container">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+        </button>
+        <!-- Brand Image Icon designed by http://iconka.com-->
+<a class="navbar-brand" href="/"><span><img alt="Brand" src="images/cat-sleep-icon.png"></span> Cat-Log</a>
+    </div>
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <ul class="nav navbar-nav">
+            <li>
+                <a href="/about">About</a>
+            </li>
+            <li>
+                <a href="/summary">Quote</a>
+            </li>
+        </ul>
+    </div>
+    <!-- /.navbar-collapse -->
+</div>
+<!-- /.container -->
+</nav>
+
+<!-- Page Content -->
+<div class="container">
+
+<div class="row">
+
+    <div class="col-md-3">
+        <p class="lead">Categories</p>
+        <div class="list-group">
+          <a href="anchoring" class="list-group-item">Anchoring</a>
+          <a href="boathardware" class="list-group-item">Boat Hardware</a>
+          <a href="boatsandmotors" class="list-group-item">Boats &amp; Motors</a>
+          <a href="clothing" class="list-group-item">Clothing</a>
+          <a href="divebuddy" class="list-group-item">Diving</a>
+          <a href="electrical" class="list-group-item">Electrical</a>
+          <a href="electronic" class="list-group-item">Electronics</a>
+          <a href="fishing" class="list-group-item">Fishing</a>
+          <a href="guides" class="list-group-item">Guides, Charts &amp; Compasses</a>
+          <a href="interior" class="list-group-item">Interior</a>
+          <a href="maintenance" class="list-group-item">Maintenance</a>
+          <a href="plumbing" class="list-group-item">Plumbing</a>
+          <a href="rigging" class="list-group-item">Rigging</a>
+          <a href="safety" class="list-group-item">Safety</a>
+        </div>
+    </div>
+
+<p class="lead">Live Quotation</p>
+<div class="alert alert-warning col-lg-8" role="alert" ng-show="ngCart.getTotalItems() === 0">
+    Your quotation/cart is empty
+</div>
+
+<div class="table-responsive col-lg-8" ng-show="ngCart.getTotalItems() > 0">
+
+    <table class="table table-striped ngCart cart">
+
+        <thead>
+        <tr>
+            <th></th>
+            <th></th>
+            <th>Quantity</th>
+            <th>Amount</th>
+            <th>Total</th>
+        </tr>
+        </thead>
+        <tfoot>
+        <tr ng-show="ngCart.getTax()">
+            <td></td>
+            <td></td>
+            <td></td>
+            <td>Tax ({{ ngCart.getTaxRate() }}%):</td>
+            <td>{{ ngCart.getTax() | currency }}</td>
+        </tr>
+        <tr ng-show="ngCart.getShipping()">
+            <td></td>
+            <td></td>
+            <td></td>
+            <td>Shipping:</td>
+            <td>{{ ngCart.getShipping() | currency }}</td>
+        </tr>
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td>Total:</td>
+            <td>{{ ngCart.totalCost() | currency }}</td>
+        </tr>
+        </tfoot>
+        <tbody>
+        <tr ng-repeat="item in ngCart.getCart().items track by $index">
+            <td><span ng-click="ngCart.removeItemById(item.getId())" class="glyphicon glyphicon-remove"></span></td>
+
+            <td>{{ item.getName() }}</td>
+            <td><span class="glyphicon glyphicon-minus" ng-class="{'disabled':item.getQuantity()==1}"
+                      ng-click="item.setQuantity(-1, true)"></span>&nbsp;&nbsp;
+                {{ item.getQuantity() | number }}&nbsp;&nbsp;
+                <span class="glyphicon glyphicon-plus" ng-click="item.setQuantity(1, true)"></span></td>
+            <td>{{ item.getPrice() | currency}}</td>
+            <td>{{ item.getTotal() | currency }}</td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+
+<style>
+    .ngCart.cart span[ng-click] {
+        cursor: pointer;
+    }
+    .ngCart.cart .glyphicon.disabled {
+        color:#aaa;
+    }
+</style>
+
+</div>
+
+</div>
+
+<!-- /.container -->
+
+<div class="container">
+
+    <hr>
+
+    <!-- Footer -->
+    <footer>
+        <div class="row">
+            <div class="col-lg-12">
+                <p>Copyright &copy; Cat Log 2007</p>
+            </div>
+        </div>
+    </footer>
+
+</div>
+<!-- /.container -->

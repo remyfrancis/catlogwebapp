@@ -1,0 +1,8 @@
+---
+applications:
+- name: catlogserver
+  memory: 256M
+  buildpack: https://github.com/cloudfoundry/nodejs-buildpack
+  host: catlog
+  domain: mybluemix.net
+  command: node app.js

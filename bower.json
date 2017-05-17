@@ -1,0 +1,22 @@
+{
+  "name": "catlog",
+  "description": "Web App for Catlog",
+  "main": "index.html",
+  "license": "MIT",
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "font-awesome": "^4.7.0",
+    "components-font-awesome": "^4.7.0",
+    "ngCart": "ngcart#^1.0.0",
+    "angular-route": "^1.6.4",
+    "angular-resource": "^1.6.4",
+    "angular": "^1.6.4"
+  }
+}

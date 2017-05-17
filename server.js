@@ -31,9 +31,14 @@ var mongoose = require('mongoose');
 const express = require('express');
 const app = express();
 
-
-//var db = mongoose.connection;
-mongoose.connect('mongodb://remz:remz2@ds143211.mlab.com:43211/heroku_zs29t624');
+var url = 'mongodb://remz:remz2@ds143211.mlab.com:43211/heroku_zs29t624';
+mongoose.connect(url);
+var db = mongoose.connection;
+db.on('error', console.error.bind(console, 'connection error:'));
+db.once('open', function () {
+  //we're connected
+  console.log("Connected correctly to server");
+})
 
 app.use(cors());
 

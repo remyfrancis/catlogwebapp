@@ -19,7 +19,7 @@ angular.module('catlogApp', ['ngCart', 'ngRoute', 'catlogApp.controllers', 'catl
 
                     // route for the Quote page
             .when('/summary', {
-                templateUrl:'views/template/ngCart/cart.html',
+                templateUrl:'views/cart.html',
                 controller:'CartController'
               })
 

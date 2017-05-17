@@ -88,6 +88,7 @@ app.use('/maintenance',maintenanceRouter);
 app.use('/plumbing',plumbingRouter);
 app.use('/rigging',riggingRouter);
 app.use('/safety',safetyRouter);
+app.use('/summary',cart);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

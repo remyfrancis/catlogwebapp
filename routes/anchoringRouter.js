@@ -7,32 +7,11 @@ var AnchoringItems = require('../models/anchoring');
 var anchoringRouter = express.Router();
 anchoringRouter.use(bodyParser.json());
 
-//
-
-
-/*var MongoClient = require('mongodb').MongoClient, assert = require('assert');
-
-
-// Use connect method to connect to the Server
-MongoClient.connect(uri, function(err, db) {
-  assert.equal(null, err);
-  console.log("Connected correctly to server");
-
-  var col = db.catlog('find');
-
-      // Get first documents from cursor
-      col.find({a:1}).limit(1).next(function(err, doc) {
-        assert.equal(null, err);
-        assert.ok(doc != null);
-        console.log(col);
-        db.close();
-      });
-    });*/
 
 
 
 
-//
+
 anchoringRouter.route('/')
 .get(function (req, res, next) {
     AnchoringItems.find({}, function (err, anchoring) {

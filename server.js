@@ -78,7 +78,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 
 
-app.use('/', index);
+app.use('/', router);
 //app.use('/users', users);
 app.use('/anchoring',anchoringRouter);
 app.use('/boathardware',boathardwareRouter);

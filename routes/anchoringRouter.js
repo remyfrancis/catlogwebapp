@@ -12,7 +12,7 @@ anchoringRouter.use(bodyParser.json());
 
 
 
-anchoringRouter.route('/')
+anchoringRouter.route('/anchoring')
 .get(function (req, res, next) {
     AnchoringItems.find({}, function (err, anchoring) {
         if (err) throw err;

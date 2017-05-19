@@ -23,9 +23,8 @@ var maintenanceRouter = require('./routes/maintenanceRouter');
 var plumbingRouter = require('./routes/plumbingRouter');
 var riggingRouter = require('./routes/riggingRouter');
 var safetyRouter = require('./routes/safetyRouter');
-var cart = require('./routes/cart');
 
-var mongoose = require('mongoose');
+var mongoose = require('mongoose'), assert = require('assert');
 
 
 const express = require('express');
@@ -38,7 +37,18 @@ db.on('error', console.error.bind(console, 'connection error:'));
 db.once('open', function () {
   //we're connected
   console.log("Connected correctly to server");
+
+  // Initialize the app.
+  var server = app.listen(process.env.PORT || 8080, function () {
+    var port = server.address().port;
+    console.log("App now running on port", port);
+  });
 });
+
+/*mongoose.connect(process.env.MONGOLAB_URI, function (error) {
+    if (error) console.error(error);
+    else console.log('mongo connected');
+});*/
 
 app.use(cors());
 
@@ -66,11 +76,7 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 
-  // Initialize the app.
-  var server = app.listen(process.env.PORT || 8080, function () {
-    var port = server.address().port;
-    console.log("App now running on port", port);
-  });
+
 
 app.use('/', index);
 //app.use('/users', users);
@@ -88,7 +94,6 @@ app.use('/maintenance',maintenanceRouter);
 app.use('/plumbing',plumbingRouter);
 app.use('/rigging',riggingRouter);
 app.use('/safety',safetyRouter);
-app.use('/summary',cart);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

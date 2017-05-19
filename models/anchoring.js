@@ -4,9 +4,6 @@ var Schema = mongoose.Schema;
 
 // create a schema
 var anchoringSchema = new Schema({
-  _id:  {
-        type: Object,      
-    },
     id: {
         type: Number,
         required: true

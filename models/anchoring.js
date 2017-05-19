@@ -39,7 +39,7 @@ var anchoringSchema = new Schema({
 
 // the schema is useless so far
 // we need to create a model using it
-var AnchoringItems = mongoose.model('Anchoring', anchoringSchema);
+var AnchoringItems = mongoose.model('Anchoring', anchoringSchema, 'anchoring');
 
 // make this available to our Node applications
 module.exports = AnchoringItems;

@@ -1,12 +1,12 @@
 'use strict';
 
 angular.module('catlogApp.services', ['ngResource'])
-        .constant("baseURL","https://catlogproject.herokuapp.com/")
+        .constant("baseURL","http://localhost:8080")
 
 
         .factory("anchoringFactory", ['$resource', 'baseURL', function($resource, baseURL) {
             return $resource(baseURL+"anchoring/:id", {}, {
-              query: {method: "GET", isArray: true}});
+            'query': {method: "GET", isArray: true}});
         }])
 
         .factory("boathardwareFactory", ['$resource', 'baseURL', function($resource, baseURL) {

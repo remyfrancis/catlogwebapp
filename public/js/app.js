@@ -1,113 +1,199 @@
 'use strict';
 
-angular.module('catlogApp', ['ngCart', 'ngRoute', 'catlogApp.controllers', 'catlogApp.services'])
+angular.module('catlogApp', ['ui.router', 'catlogApp.controllers', 'catlogApp.services'])
+.config(function($stateProvider, $urlRouterProvider) {
+        $stateProvider
 
-//Application Routes
+            // route for the home page
+            .state('app', {
+                url:'/',
+                views: {
+                    'header': {
+                        templateUrl : 'views/header.html',
+                    },
+                    'nav': {
+                        templateUrl : 'views/nav.html',
+                    },
+                    'content': {
+                        templateUrl : 'views/home.html',
+                    },
+                    'footer': {
+                        templateUrl : 'views/footer.html',
+                    }
+                }
 
-.config(function($locationProvider, $routeProvider) {
-        $locationProvider.html5Mode({
-          enabled: true
-        });
-        $routeProvider
-
-
-                    // route for the home page
-            .when('/', {
-                templateUrl:'views/home.html',
-                controller:''
-              })
-
-                    // route for the Quote page
-            .when('/summary', {
-                templateUrl:'views/cart.html',
-                controller:'CartController'
-              })
-
-                    // route for the Anchoring page
-            .when('/anchoring', {
-                templateUrl:'views/anchoring.html',
-                controller:'anchoringController'
-              })
-
-                    // route for the Boat Hardware page
-            .when('/boathardware', {
-                templateUrl:'views/boat_hardware.html',
-                controller:'boathardwareController'
-              })
-
-                  // route for the Boats & Motors page
-            .when('/boatsandmotors', {
-            templateUrl:'views/boats_and_motors.html',
-            controller:'boatsandmotorsController'
             })
 
-                  // route for the Clothing page
-            .when('/clothing', {
-            templateUrl:'views/clothing.html',
-            controller:'clothingController'
+            // route for the cart page
+            .state('app.summary', {
+                url:'summary',
+                views: {
+                    'content@': {
+                        templateUrl : 'views/cart.html',
+                        controller  : 'CartController'
+                    }
+                }
             })
 
-                  // route for the Diving page
-            .when('/divebuddy', {
-            templateUrl:'views/divebuddy.html',
-            controller:'divingController'
+            // route for the aboutus page
+            .state('app.anchoring', {
+                url:'anchoring',
+                views: {
+                    'content@': {
+                        templateUrl : 'views/anchoring.html',
+                        controller  : 'anchoringController'
+                    }
+                }
             })
 
-                  // route for the Electrical page
-            .when('/electrical', {
-            templateUrl:'views/electrical.html',
-            controller:'electricalController'
+            // route for the boat hardware page
+            .state('app.boathardware', {
+                url:'boathardware',
+                views: {
+                    'content@': {
+                        templateUrl : 'views/boat_hardware.html',
+                        controller  : 'boathardwareController'
+                    }
+                }
             })
 
-                  // route for the Electronic page
-            .when('/electronic', {
-            templateUrl:'views/electronic.html',
-            controller:'electronicController'
+            // route for the boats and motors page
+            .state('app.boatsandmotors', {
+                url:'boatsandmotors',
+                views: {
+                    'content@': {
+                        templateUrl : 'views/boats_and_motors.html',
+                        controller  : 'boatsandmotorsController'
+                    }
+                }
             })
 
-                  // route for the Fishing page
-            .when('/fishing', {
-            templateUrl:'views/fishing.html',
-            controller:'fishingController'
+            // route for the clothing page
+            .state('app.clothing', {
+                url:'clothing',
+                views: {
+                    'content@': {
+                        templateUrl : 'views/clothing.html',
+                        controller  : 'clothingController'
+                    }
+                }
             })
 
-                  // route for the Guides page
-            .when('/guides', {
-            templateUrl:'views/guides.html',
-            controller:'guidesController'
+            // route for the diving page
+            .state('app.divebuddy', {
+                url:'diving',
+                views: {
+                    'content@': {
+                        templateUrl : 'views/divebuddy.html',
+                        controller  : 'divingController'
+                    }
+                }
             })
 
-                  // route for the Interior page
-            .when('/interior', {
-            templateUrl:'views/interior.html',
-            controller:'interiorController'
+            // route for the electrical page
+            .state('app.electrical', {
+                url:'electrical',
+                views: {
+                    'content@': {
+                        templateUrl : 'views/electrical.html',
+                        controller  : 'electricalController'
+                    }
+                }
             })
 
-                  // route for the Maintenance page
-            .when('/maintenance', {
-            templateUrl:'views/maintenance.html',
-            controller:'maintenanceController'
+            // route for the electronic page
+            .state('app.electronic', {
+                url:'electronic',
+                views: {
+                    'content@': {
+                        templateUrl : 'views/electronic.html',
+                        controller  : 'electronicController'
+                    }
+                }
             })
 
-                  // route for the Plumbing page
-            .when('/plumbing', {
-            templateUrl:'views/plumbing.html',
-            controller:'plumbingController'
+            // route for the fishing page
+            .state('app.fishing', {
+                url:'fishing',
+                views: {
+                    'content@': {
+                        templateUrl : 'views/fishing.html',
+                        controller  : 'fishingController'
+                    }
+                }
             })
 
-                  // route for the Rigging page
-            .when('/rigging', {
-            templateUrl:'views/rigging.html',
-            controller:'riggingController'
+            // route for the guides page
+            .state('app.guides', {
+                url:'guides',
+                views: {
+                    'content@': {
+                        templateUrl : 'views/guides.html',
+                        controller  : 'guidesController'
+                    }
+                }
             })
 
-                  // route for the Safety page
-            .when('/safety', {
-            templateUrl:'views/safety.html',
-            controller:'safetyController'
+            // route for the interior page
+            .state('app.interior', {
+                url:'interior',
+                views: {
+                    'content@': {
+                        templateUrl : 'views/interior.html',
+                        controller  : 'interiorController'
+                    }
+                }
+            })
+
+            // route for the maintenance page
+            .state('app.maintenance', {
+                url:'maintenance',
+                views: {
+                    'content@': {
+                        templateUrl : 'views/maintenance.html',
+                        controller  : 'maintenanceController'
+                    }
+                }
+            })
+
+            // route for the plumbing page
+            .state('app.plumbing', {
+                url:'plumbing',
+                views: {
+                    'content@': {
+                        templateUrl : 'views/plumbing.html',
+                        controller  : 'plumbingController'
+                    }
+                }
+            })
+
+            // route for the rigging page
+            .state('app.rigging', {
+                url:'rigging',
+                views: {
+                    'content@': {
+                        templateUrl : 'views/rigging.html',
+                        controller  : 'riggingController'
+                    }
+                }
+            })
+
+            // route for the safety page
+            .state('app.safety', {
+                url:'safety',
+                views: {
+                    'content@': {
+                        templateUrl : 'views/safety.html',
+                        controller  : 'safetyController'
+                    }
+                }
             })
 
 
-            // if none of the above states are matched, use this as the fallback
-            .otherwise('views/home.html');
+
+
+            ;
+
+        $urlRouterProvider.otherwise('/');
     })
+;

@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('catlogApp.controllers', [])
+angular.module('catlogApp', [])
 
 .controller('anchoringController', ['$scope', '$routeParams', 'anchoringFactory', 'baseURL', function($scope, $routeParams, anchoringFactory, baseURL) {
 

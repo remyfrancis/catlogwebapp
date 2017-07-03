@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('catlogApp.services', ['ngResource'])
+angular.module('catlogApp', ['ngResource'])
         .constant("baseURL","mongodb://Remz:yadmon@ds133221.mlab.com:33221/catlogappdatabase")
 
 

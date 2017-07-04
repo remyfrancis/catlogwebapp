@@ -2,7 +2,7 @@
 
 
 angular.module('catlogAppService', ['ngResource'])
-        .constant("baseURL","mongodb://Remz:yadmon@ds133221.mlab.com:33221/catlogappdatabase")
+        .constant("baseURL","mongodb://Remz:yadmon13@ds133221.mlab.com:33221/catlogappdatabase")
 
 
         .factory("anchoringFactory", ['$resource', 'baseURL', function($resource, baseURL) {

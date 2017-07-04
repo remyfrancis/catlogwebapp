@@ -27,7 +27,7 @@ var app = express();
 var mongoose = require('mongoose');
 
 // Connect to server
-var url = 'mongodb://Remz:yadmon@ds133221.mlab.com:33221/catlogappdatabase';
+var url = 'mongodb://Remz:yadmon13@ds133221.mlab.com:33221/catlogappdatabase';
 mongoose.connect(url);
 var db = mongoose.connection;
 db.on('error', console.error.bind(console, 'connection error:'));

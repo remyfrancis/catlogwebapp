@@ -4,7 +4,7 @@
 angular.module('catlogApp.controllers',[])
 
 
-.controller('anchoringController', ['catlogAppService','$scope', '$stateParams', 'anchoringFactory', 'baseURL', function(catlogAppService, $scope, $stateParams, anchoringFactory, baseURL) {
+.controller('anchoringController', ['$scope', '$stateParams', 'anchoringFactory', 'baseURL', function($scope, $stateParams, anchoringFactory, baseURL) {
 
             $scope.baseURL = baseURL;
             $scope.anchoring = anchoringFactory.query();

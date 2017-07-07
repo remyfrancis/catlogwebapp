@@ -1,6 +1,12 @@
 'use strict';
 
+<<<<<<< HEAD
 var catlogApp = angular.module('catlogApp', ['ui.router','ngResource'])
+=======
+
+angular.module('catlogApp', ['ui.router','ngResource', 'catlogAppController', 'catlogAppService'])
+
+>>>>>>> 0b30fdb030eabe12898c37d450c199ad36e32c10
 .config(function($stateProvider, $urlRouterProvider) {
         $stateProvider
 

@@ -1,7 +1,8 @@
 'use strict';
 
-angular.module('catlogApp', ['ngResource'])
-        .constant("baseURL","mongodb://Remz:yadmon13@ds133221.mlab.com:33221/catlogappdatabase")
+
+angular.module('catlogAppService', ['ngResource'])
+        .constant("baseURL","https://catlogproject.herokuapp.com/db/items.json")
 
 
         .factory("anchoringFactory", ['$resource', 'baseURL', function($resource, baseURL) {

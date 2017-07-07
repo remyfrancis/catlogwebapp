@@ -1,7 +1,7 @@
 'use strict';
 
 
-angular.module('catlogAppService', ['ngResource'])
+angular.module('catlogApp.services', ['ngResource'])
         .constant("baseURL","https://catlogproject.herokuapp.com/db/items.json/")
 
 

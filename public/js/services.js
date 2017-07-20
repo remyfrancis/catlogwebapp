@@ -2,7 +2,7 @@
 
 
 angular.module('catlogApp.services', ['ngResource'])
-        .constant("baseURL","https://catlogproject.herokuapp.com/db/items.json/")
+        .constant("baseURL","https://api.myjson.com/bins/uv1yf")
 
 
         .factory("anchoringFactory", ['$resource', 'baseURL', function($resource, baseURL) {

@@ -6,8 +6,8 @@ angular.module('catlogApp.services', ['ngResource'])
 
 
         .factory("anchoringFactory", ['$resource', 'baseURL', function($resource, baseURL) {
-            return $resource(baseURL+"anchoring/:id", {}, {
-            'query': {method: "GET", isArray: true}});
+            return $resource(baseURL, {}, {
+            query: {method: "GET", isArray: true}});
         }])
 
         .factory("boathardwareFactory", ['$resource', 'baseURL', function($resource, baseURL) {

@@ -4,7 +4,21 @@
 angular.module('catlogApp.controllers',[])
 
 
-.controller('anchoringController', ['$scope', '$stateParams', 'anchoringFactory', 'baseURL', function($scope, $stateParams, anchoringFactory, baseURL) {
+.controller('anchoringController',function($scope, $http) {
+  $scope.method = 'GET';
+  $scope.url = 'https://api.myjson.com/bins/uv1yf';
+
+    $http({method: $scope.method, url: $scope.url}).
+      success(function(res) {
+        $scope.anchoring = res.anchoring;
+        console.log($scope.anchoring); // anchoring data
+      }).
+      error(function(err) {
+        console.log(err);
+    });
+  });
+
+/*.controller('anchoringController', ['$scope', '$stateParams', 'anchoringFactory', 'baseURL', function($scope, $stateParams, anchoringFactory, baseURL) {
 
             $scope.baseURL = baseURL;
             $scope.anchoring = anchoringFactory.query();
@@ -102,4 +116,4 @@ angular.module('catlogApp.controllers',[])
             $scope.safety = safetyFactory.query();
 
 }])
-;
+;*/

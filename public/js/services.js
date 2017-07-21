@@ -2,16 +2,16 @@
 
 
 angular.module('catlogApp.services', ['ngResource'])
-        .constant("baseURL","https://api.myjson.com/bins/uv1yf")
+        .constant("baseURL","mongodb://remy:remypassword@ds135382.mlab.com:35382/heroku_zp2jpnn2")
 
 
         .factory("anchoringFactory", ['$resource', 'baseURL', function($resource, baseURL) {
-            return $resource(baseURL, {}, {
+            return $resource(baseURL+"/:anchoringId", {}, {
             'query': {method: "GET", isArray: true}});
         }])
 
         .factory("boathardwareFactory", ['$resource', 'baseURL', function($resource, baseURL) {
-            return $resource(baseURL+"boathardware/:id", {}, {
+            return $resource(baseURL+"/:boathardwareId", {}, {
             query: {method: "GET", isArray: true}
             });
         }])

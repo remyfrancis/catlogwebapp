@@ -21,10 +21,10 @@ angular.module('catlogApp.controllers',[])
 .controller('anchoringController', ['$scope', '$stateParams', 'anchoringFactory', 'baseURL', function($scope, $stateParams, anchoringFactory, baseURL) {
 
             $scope.baseURL = baseURL;
-            $scope.anchor = anchoringFactory.get();
-            $scope.anchoring = $.makeArray($scope.anchor);
+            $scope.anchoring ={$scope.anchoringFactory.get()}
+            console.log(Object.values($scope.anchoring));
 
-}])
+  }])
 
 
 .controller('boathardwareController', ['$scope', '$routeParams', 'boathardwareFactory', 'baseURL', function($scope, $routeParams, boathardwareFactory, baseURL) {

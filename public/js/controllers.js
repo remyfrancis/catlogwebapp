@@ -30,6 +30,7 @@ angular.module('catlogApp.controllers',[])
 
             anchoringFactory.get().$promise.then(function(response) {
             $scope.anchoring = response;
+            console.log(anchoringFactory.get());
             });
 
             /*var user = anchoringFactory.get({anchoring:[]}, function() {

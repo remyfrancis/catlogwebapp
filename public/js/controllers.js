@@ -21,14 +21,14 @@ angular.module('catlogApp.controllers',[])
 .controller('anchoringController', ['$scope', '$stateParams', 'anchoringFactory', 'baseURL', function($scope, $stateParams, anchoringFactory, baseURL) {
 
             $scope.baseURL = baseURL;
-            console.log(anchoringFactory.get());
+            console.log(anchoringFactory.query());
             /*var data = JSON.stringify(anchoringFactory.get());
             console.log(data);
             $scope.anchoring = data;
             console.log($scope.anchoring);*/
 
             $scope.anchoring = []
-            anchoringFactory.get({}, function(response) {
+            anchoringFactory.query({}, function(response) {
                 $scope.anchoring = response;
             });
 

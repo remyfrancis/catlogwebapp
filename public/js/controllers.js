@@ -22,10 +22,17 @@ angular.module('catlogApp.controllers',[])
 
             $scope.baseURL = baseURL;
             console.log(anchoringFactory.get());
-            var data = JSON.stringify(anchoringFactory.get());
-            console.log(data);
-            $scope.anchoring = data;
+            $scope.data = JSON.stringify(anchoringFactory.get());
+            console.log($scope.data);
+            $scope.anchoring = $scope.data;
             console.log($scope.anchoring);
+
+            /*var User = $resource('/user/:userId', {userId:'@id'});
+            anchoringFactory.get()
+            var user = anchoringFactory.get({anchoring:[]}, function() {
+              user.abc = true;
+              user.$save();
+            });
 
             /*$.get(data.uri, function (data, textStatus, jqXHR) {
                 var json = JSON.stringify(data);

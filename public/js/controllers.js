@@ -21,7 +21,7 @@ angular.module('catlogApp.controllers',[])
 .controller('anchoringController', ['$scope', '$stateParams', 'anchoringFactory', 'baseURL', function($scope, $stateParams, anchoringFactory, baseURL) {
 
             $scope.baseURL = baseURL;
-            $scope.anchoring ={$scope.anchoringFactory.get()}
+            $scope.anchoring ={anchoringFactory.get()}
             console.log(Object.values($scope.anchoring));
 
   }])

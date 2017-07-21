@@ -24,6 +24,7 @@ angular.module('catlogApp.controllers',[])
 
             var data = JSON.stringify(anchoringFactory.get());
             $scope.anchoring = data;
+            console.log($scope.anchoring);
 
             /*$.get(data.uri, function (data, textStatus, jqXHR) {
                 var json = JSON.stringify(data);

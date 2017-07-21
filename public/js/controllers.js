@@ -27,8 +27,13 @@ angular.module('catlogApp.controllers',[])
             $scope.anchoring = data;
             console.log($scope.anchoring);*/
 
+            $scope.anchoring = []
+            anchoringFactory.get({}, function(response) {
+                $scope.anchoring = response;
+            });
 
-            anchoringFactory.get().$promise.then(function(response) {
+
+            /*anchoringFactory.get().$promise.then(function(response) {
             $scope.anchoring = response;
             console.log(anchoringFactory.get());
             });

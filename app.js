@@ -36,6 +36,11 @@ db.once('open', function () {
     console.log("Connected correctly to server");
 });
 
+var cors = require('cors')
+
+var app = express()
+app.use(cors())
+
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 //app.set('view engine', 'jade');

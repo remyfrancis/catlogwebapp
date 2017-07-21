@@ -23,8 +23,10 @@ var riggingRouter = require('./routes/riggingRouter');
 var safetyRouter = require('./routes/safetyRouter');
 
 var app = express();
-
+var cors = require('cors');
 var mongoose = require('mongoose');
+
+app.use(cors());
 
 // Connect to server
 var url = 'mongodb://remy:remypassword@ds135382.mlab.com:35382/heroku_zp2jpnn2';
@@ -36,10 +38,7 @@ db.once('open', function () {
     console.log("Connected correctly to server");
 });
 
-var cors = require('cors')
 
-var app = express()
-app.use(cors())
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));

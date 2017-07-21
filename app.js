@@ -28,6 +28,8 @@ var mongoose = require('mongoose');
 
 app.use(cors());
 
+
+
 // Connect to server
 var url = 'mongodb://remy:remypassword@ds135382.mlab.com:35382/heroku_zp2jpnn2';
 mongoose.connect(url);
@@ -37,7 +39,6 @@ db.once('open', function () {
     // we're connected!
     console.log("Connected correctly to server");
 });
-
 
 
 // view engine setup

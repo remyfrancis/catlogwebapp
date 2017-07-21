@@ -13,7 +13,7 @@ anchoringRouter.use(bodyParser.json());
 
 
 
-anchoringRouter.route('/')
+anchoringRouter.route('/api/anchoring')
 .get(function (req, res, next) {
     AnchoringItems.find({}, function (err, anchoring) {
         if (err) throw err;
@@ -41,13 +41,14 @@ anchoringRouter.route('/')
     });
 });
 
-anchoringRouter.route('/:anchoringId')
+anchoringRouter.route('api/anchoring/:id')
 .get(function (req, res, next) {
     AnchoringItems.findById(req.params.anchoringId, function (err, anchoring) {
         if (err) throw err;
         res.json(anchoring);
     });
 })
+
 
 .put(function (req, res, next) {
     AnchoringItems.findByIdAndUpdate(req.params.anchoringId, {

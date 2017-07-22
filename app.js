@@ -1,9 +1,59 @@
 var express = require('express');
+var cors = require('cors');
 var path = require('path');
 var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
+var mongodb = require("mongodb");
+var mongoose = require('mongoose');
+var config = require('./config');
+//var ObjectID = mongodb.ObjectID;
+
+dbURI = config.mongoUrl;
+
+if (process.env.VCAP_SERVICES) {
+  var env = JSON.parse(process.env.VCAP_SERVICES);
+  if (env.mongolab) { // for mongolabs
+    var ml = env.mongolab;
+    dbURI = ml[0].credentials.uri;
+  }
+}
+
+var db = mongoose.connection;
+db.on('error', console.error.bind(console, 'connection error:'));
+db.once('open', function () {
+    // we're connected!
+    console.log("Connected correctly to server");
+});
+db.on('connected', function() {
+    console.log('connected!');
+});
+db.on('reconnected', function () {
+    console.log('reconnected');
+});
+db.on('disconnected', function() {
+    console.log('disconnected');
+    console.log('dbURI is: '+dbURI);
+    mongoose.connect(dbURI, {server:{auto_reconnect:true, socketOptions: { keepAlive: 1, connectTimeoutMS: 30000 }}, replset: { socketOptions: { keepAlive: 1, connectTimeoutMS : 30000 } }});
+  });
+
+console.log('dbURI is: '+dbURI);
+
+mongoose.connect(dbURI, {server:{auto_reconnect:true}});
+
+
+
+/* Connect to server
+var url = 'mongodb://remy:remypassword@ds135382.mlab.com:35382/heroku_zp2jpnn2';
+mongoose.connect(url);
+var db = mongoose.connection;
+db.on('error', console.error.bind(console, 'connection error:'));
+db.once('open', function () {
+    // we're connected!
+    console.log("Connected correctly to server");
+});*/
+
 
 var index = require('./routes/index');
 //var users = require('./routes/users');
@@ -22,24 +72,10 @@ var plumbingRouter = require('./routes/plumbingRouter');
 var riggingRouter = require('./routes/riggingRouter');
 var safetyRouter = require('./routes/safetyRouter');
 
+
 var app = express();
-var cors = require('cors');
-var mongoose = require('mongoose');
 
 app.use(cors());
-
-
-
-// Connect to server
-var url = 'mongodb://remy:remypassword@ds135382.mlab.com:35382/heroku_zp2jpnn2';
-mongoose.connect(url);
-var db = mongoose.connection;
-db.on('error', console.error.bind(console, 'connection error:'));
-db.once('open', function () {
-    // we're connected!
-    console.log("Connected correctly to server");
-});
-
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -76,6 +112,17 @@ app.use(function(req, res, next) {
   err.status = 404;
   next(err);
 });
+
+// CORS
+app.use(function (req, res, next) {
+
+    //headers that enable corse
+    res.header('Access-Control-Allow-Origin', '*');
+    res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE,PATCH');
+    res.header('Access-Control-Allow-Headers', 'Content-Type, Authorization');
+    next();
+});
+
 
 // error handlers
 // development error handler

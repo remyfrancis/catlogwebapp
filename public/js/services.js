@@ -3,7 +3,7 @@
 
 angular.module('catlogApp.services', ['ngResource'])
         //.constant("baseURL","http://localhost:8080/")
-        .constant("baseURL","https://catlogproject.herokuapp.com")
+        .constant("baseURL","https://catlogproject.herokuapp.com/")
 
 
         .factory("anchoringFactory", ['$resource', 'baseURL', function($resource, baseURL) {

@@ -2,90 +2,78 @@
 
 
 angular.module('catlogApp.services', ['ngResource'])
+        //.constant("baseURL","http://localhost:8080/")
         .constant("baseURL","https://catlogproject.herokuapp.com")
 
 
         .factory("anchoringFactory", ['$resource', 'baseURL', function($resource, baseURL) {
-            return $resource(baseURL+"/:anchoringId", {}, {
-            query: {method: "GET", isArray: true}});
+            return $resource(baseURL+"anchoring/:id", {}, {
+            'update': {method: "PUT"}});
         }])
 
         .factory("boathardwareFactory", ['$resource', 'baseURL', function($resource, baseURL) {
-            return $resource(baseURL+"/:boathardwareId", {}, {
-            query: {method: "GET", isArray: true}
-            });
+            return $resource(baseURL+"boathardware/:id", {}, {
+            'update': {method: "PUT"}});
         }])
 
         .factory("boatsandmotorsFactory", ['$resource', 'baseURL', function($resource, baseURL) {
             return $resource(baseURL+"boatsandmotors/:id", {}, {
-              query: {method: "GET", isArray:true}
-            });
+              'update': {method: "PUT"}});
         }])
 
         .factory("clothingFactory", ['$resource', 'baseURL', function($resource, baseURL) {
             return $resource(baseURL+"clothing/:id", {}, {
-              query: {method: "GET", isArray:true}
-            });
+              'update': {method: "PUT"}});
         }])
 
         .factory("divingFactory", ['$resource', 'baseURL', function($resource, baseURL) {
             return $resource(baseURL+"diving/:id", {}, {
-              query: {method: "GET", isArray:true}
-            });
+              'update': {method: "PUT"}});
         }])
 
         .factory("electricalFactory", ['$resource', 'baseURL', function($resource, baseURL) {
             return $resource(baseURL+"electrical/:id", {}, {
-              query: {method: "GET", isArray:true}
-            });
+              'update': {method: "PUT"}});
         }])
 
         .factory("electronicFactory", ['$resource', 'baseURL', function($resource, baseURL) {
             return $resource(baseURL+"electronic/:id", {}, {
-              query: {method: "GET", isArray:true}
-            });
+              'update': {method: "PUT"}});
         }])
 
         .factory("fishingFactory", ['$resource', 'baseURL', function($resource, baseURL) {
             return $resource(baseURL+"fishing/:id", {}, {
-              query: {method: "GET", isArray:true}
-            });
+              'update': {method: "PUT"}});
         }])
 
         .factory("guidesFactory", ['$resource', 'baseURL', function($resource, baseURL) {
             return $resource(baseURL+"guides/:id", {}, {
-              query: {method: "GET", isArray:true}
-            });
+              'update': {method: "PUT"}});
         }])
 
         .factory("interiorFactory", ['$resource', 'baseURL', function($resource, baseURL) {
             return $resource(baseURL+"interior/:id", {}, {
-              query: {method: "GET", isArray:true}
-            });
+              'update': {method: "PUT"}});
         }])
 
         .factory("maintenanceFactory", ['$resource', 'baseURL', function($resource, baseURL) {
             return $resource(baseURL+"maintenance/:id", {}, {
-              query: {method: "GET", isArray:true}
-            });
+              'update': {method: "PUT"}});
         }])
 
         .factory("plumbingFactory", ['$resource', 'baseURL', function($resource, baseURL) {
             return $resource(baseURL+"plumbing/:id", {}, {
-              query: {method: "GET", isArray:true}
-            });
+              'update': {method: "PUT"}});
         }])
 
         .factory("safetyFactory", ['$resource', 'baseURL', function($resource, baseURL) {
             return $resource(baseURL+"safety/:id", {}, {
-              query: {method: "GET", isArray:true}
-            });
+              'update': {method: "PUT"}});
         }])
 
         .factory("riggingFactory", ['$resource', 'baseURL', function($resource, baseURL) {
             return $resource(baseURL+"rigging/:id", {}, {
-              query: {method: "GET", isArray:true}
-            });
+              'update': {method: "PUT"}});
         }])
 
 

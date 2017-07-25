@@ -6,7 +6,7 @@ angular.module('cart', ['ionic'])
     return {
         restrict: 'E',
         template: function(elem, attrs) {
-            return '<div ng-repeat="item in anchoring | filter:filtText" class="item item-thumbnail-left" href="#" >
+            return '<div ng-repeat="item in anchoring[0].anchoring | filter:filtText" class="item item-thumbnail-left" href="#" >
       			  <img ng-src={{item.image}}>
       			  <small>{{item.itemno}}</small>
       			  <h2>{{item.description}}</h2>

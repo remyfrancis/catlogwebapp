@@ -25,6 +25,14 @@ var divingSchema = new Schema({
         type: Number,
         required: true
     },
+    dfec: {
+        type: Number,
+        required: true
+    },
+    dpec: {
+        type: Number,
+        required: true
+    },
     category: {
         type: String,
         required: true
@@ -39,7 +47,7 @@ var divingSchema = new Schema({
 
 // the schema is useless so far
 // we need to create a model using it
-var DivingItems = mongoose.model('Diving', divingSchema);
+var DivingItems = mongoose.model('Diving', divingSchema, 'diving');
 
 // make this available to our Node applications
 module.exports = DivingItems;

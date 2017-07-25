@@ -25,6 +25,14 @@ var interiorSchema = new Schema({
         type: Number,
         required: true
     },
+    dfec: {
+        type: Number,
+        required: true
+    },
+    dpec: {
+        type: Number,
+        required: true
+    },
     category: {
         type: String,
         required: true
@@ -39,7 +47,7 @@ var interiorSchema = new Schema({
 
 // the schema is useless so far
 // we need to create a model using it
-var InteriorItems = mongoose.model('Interior', interiorSchema);
+var InteriorItems = mongoose.model('Interior', interiorSchema, 'interior');
 
 // make this available to our Node applications
 module.exports = InteriorItems;

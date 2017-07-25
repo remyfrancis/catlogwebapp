@@ -25,6 +25,14 @@ var maintenanceSchema = new Schema({
         type: Number,
         required: true
     },
+    dfec: {
+        type: Number,
+        required: true
+    },
+    dpec: {
+        type: Number,
+        required: true
+    },
     category: {
         type: String,
         required: true
@@ -39,7 +47,7 @@ var maintenanceSchema = new Schema({
 
 // the schema is useless so far
 // we need to create a model using it
-var MaintenanceItems = mongoose.model('Maintenance', maintenanceSchema);
+var MaintenanceItems = mongoose.model('Maintenance', maintenanceSchema, 'maintenance');
 
 // make this available to our Node applications
 module.exports = MaintenanceItems;

@@ -25,6 +25,14 @@ var anchoringSchema = new Schema({
         type: Number,
         required: true
     },
+    dfec: {
+        type: Number,
+        required: true
+    },
+    dpec: {
+        type: Number,
+        required: true
+    },
     category: {
         type: String,
         required: true

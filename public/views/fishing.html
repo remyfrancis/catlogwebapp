@@ -36,19 +36,19 @@
           <h2 class="page-header">Fishing Guides</h2>
           <p><label for="search">Search For</label> <span class="glyphicon glyphicon-search"></span> <input type="text" placeholder="Enter Search Term" ng-model="filtText" id="search"></p>
 
-            <div class="col-sm-4 col-lg-4 col-md-4" ng-repeat="item in fishing | filter:filtText">
+            <div class="col-sm-4 col-lg-4 col-md-4" ng-repeat="item in fishing[0].fishing | filter:filtText">
                 <div class="thumbnail">
                     <img src="{{item.image}}" alt="">
                     <div class="caption">
-                        <h4 class="pull-right">{{item.price | currency}}</h4>
+                        <h4 class="pull-right">US{{item.price | currency}}</h4>
                         <h4>{{item.name}}</h4>
                         <small>Catalog Code: {{item.itemno}}</small>
                     </div>
                     <div class="ratings">
                         <ngcart-addtocart id="{{ item.id }}" name="{{ item.name }}" price="{{ item.price }}" quantity="1" quantity-max="30" data="item">Quote</ngcart-addtocart>
                         <p>
-                            <span class="">Duty Free EC$: {{item.price * 2.7 | currency}}</span><br>
-                            <span class="">Duty Paid EC$: {{item.price * 3 | currency}}</span>
+                            <span class="">Duty Free EC: {{item.price * 2.7 | currency}}</span><br>
+                            <span class="">Duty Paid EC: {{item.price * 3 | currency}}</span>
                         </p>
                     </div>
                 </div>

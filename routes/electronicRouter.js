@@ -2,7 +2,7 @@ var express = require('express');
 var bodyParser = require('body-parser');
 var mongoose = require('mongoose');
 
-var ElectrionicItems = require('../models/electronic');
+var ElectronicItems = require('../models/electronic');
 
 var electronicRouter = express.Router();
 electronicRouter.use(bodyParser.json());

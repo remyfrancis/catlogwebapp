@@ -4,145 +4,244 @@
 angular.module('catlogApp.controllers',[])
 
 
-/*.controller('anchoringController',function($scope, $http) {
-  $scope.method = 'GET';
-  $scope.url = 'https://api.myjson.com/bins/uv1yf';
-
-    $http({method: $scope.method, url: $scope.url})
-    .success(function(res) {
-        $scope.anchoring = res.anchoring;
-        console.log($scope.anchoring); // anchoring data
-      })
-      .error(function(err) {
-        console.log(err);
-    });
-  });*/
-
 .controller('anchoringController', ['$scope', '$stateParams', 'anchoringFactory', 'baseURL', function($scope, $stateParams, anchoringFactory, baseURL) {
 
 
-            $scope.baseURL = baseURL;
-            $scope.anchoring = anchoringFactory.query();
+            $scope.showAnchoring = false;
+            $scope.message = "Loading ...";
 
+            anchoringFactory.query(
+                function (response) {
+                    $scope.anchoring = response;
+                    $scope.showAnchoring = true;
+                },
+                function (response) {
+                    $scope.message = "Error: " + response.status + " " + response.statusText;
+                }
+              );
 
-            /*$scope.baseURL = baseURL;
-            console.log(anchoringFactory.query());
-            /*var data = JSON.stringify(anchoringFactory.get());
-            console.log(data);
-            $scope.anchoring = data;
-            console.log($scope.anchoring);*/
-
-            /*$scope.anchoring = []
-            anchoringFactory.query({}, function(response) {
-                $scope.anchoring = response;
-            });*/
-
-
-            /*anchoringFactory.get().$promise.then(function(response) {
-            $scope.anchoring = response;
-            console.log(anchoringFactory.get());
-            });
-
-            /*var user = anchoringFactory.get({anchoring:[]}, function() {
-              user.abc = true;
-              user.$save();
-            });8?
-
-            /*$.get(data.uri, function (data, textStatus, jqXHR) {
-                var json = JSON.stringify(data);
-            });*/
 
   }])
 
 
-.controller('boathardwareController', ['$scope', '$routeParams', 'boathardwareFactory', 'baseURL', function($scope, $routeParams, boathardwareFactory, baseURL) {
+.controller('boathardwareController', ['$scope', '$stateParams', 'boathardwareFactory', 'baseURL', function($scope, $stateParams, boathardwareFactory, baseURL) {
 
-            $scope.baseURL = baseURL;
-            $scope.boathardware = boathardwareFactory.query();
+        $scope.showBoathardware = false;
+        $scope.message = "Loading ...";
 
-}])
-
-.controller('boatsandmotorsController', ['$scope', '$routeParams', 'boatsandmotorsFactory', 'baseURL', function($scope, $routeParams, boatsandmotorsFactory, baseURL) {
-
-            $scope.baseURL = baseURL;
-            $scope.boatsandmotors = boatsandmotorsFactory.query();
-
-}])
-
-.controller('clothingController', ['$scope', '$routeParams', 'clothingFactory', 'baseURL', function($scope, $routeParams, clothingFactory, baseURL) {
-
-            $scope.baseURL = baseURL;
-            $scope.clothing = clothingFactory.query();
+        boathardwareFactory.query(
+            function (response) {
+                $scope.boathardware = response;
+                $scope.showBoathardware = true;
+            },
+            function (response) {
+                $scope.message = "Error: " + response.status + " " + response.statusText;
+            }
+          );
 
 }])
 
-.controller('divingController', ['$scope', '$routeParams', 'divingFactory', 'baseURL', function($scope, $routeParams, divingFactory, baseURL) {
+.controller('boatsandmotorsController', ['$scope', '$stateParams', 'boatsandmotorsFactory', 'baseURL', function($scope, $stateParams, boatsandmotorsFactory, baseURL) {
 
-            $scope.baseURL = baseURL;
-            $scope.diving = divingFactory.query();
+        $scope.showBoatsandmotors = false;
+        $scope.message = "Loading ...";
 
-}])
-
-.controller('electricalController', ['$scope', '$routeParams', 'electricalFactory', 'baseURL', function($scope, $routeParams, electricalFactory, baseURL) {
-
-            $scope.baseURL = baseURL;
-            $scope.electrical = electricalFactory.query();
-
-}])
-
-.controller('electronicController', ['$scope', '$routeParams', 'electronicFactory', 'baseURL', function($scope, $routeParams, electronicFactory, baseURL) {
-
-            $scope.baseURL = baseURL;
-            $scope.electronic = electronicFactory.query();
+        boatsandmotorsFactory.query(
+            function (response) {
+                $scope.boatsandmotors = response;
+                $scope.showBoatsandmotors = true;
+            },
+            function (response) {
+                $scope.message = "Error: " + response.status + " " + response.statusText;
+            }
+          );
 
 }])
 
-.controller('fishingController', ['$scope', '$routeParams', 'fishingFactory', 'baseURL', function($scope, $routeParams, fishingFactory, baseURL) {
+.controller('clothingController', ['$scope', '$stateParams', 'clothingFactory', 'baseURL', function($scope, $stateParams, clothingFactory, baseURL) {
 
-            $scope.baseURL = baseURL;
-            $scope.fishing = fishingFactory.query();
+        $scope.showClothing = false;
+        $scope.message = "Loading ...";
 
-}])
-
-.controller('guidesController', ['$scope', '$routeParams', 'guidesFactory', 'baseURL', function($scope, $routeParams, guidesFactory, baseURL) {
-
-            $scope.baseURL = baseURL;
-            $scope.guides = guidesFactory.query();
-
-}])
-
-.controller('interiorController', ['$scope', '$routeParams', 'interiorFactory', 'baseURL', function($scope, $routeParams, interiorFactory, baseURL) {
-
-            $scope.baseURL = baseURL;
-            $scope.interior = interiorFactory.query();
+        clothingFactory.query(
+            function (response) {
+                $scope.clothing = response;
+                $scope.showClothing = true;
+            },
+            function (response) {
+                $scope.message = "Error: " + response.status + " " + response.statusText;
+            }
+          );
 
 }])
 
-.controller('maintenanceController', ['$scope', '$routeParams', 'maintenanceFactory', 'baseURL', function($scope, $routeParams, maintenanceFactory, baseURL) {
+.controller('divingController', ['$scope', '$stateParams', 'divingFactory', 'baseURL', function($scope, $stateParams, divingFactory, baseURL) {
 
-            $scope.baseURL = baseURL;
-            $scope.maintenance = maintenanceFactory.query();
+        $scope.showDiving = false;
+        $scope.message = "Loading ...";
 
-}])
-
-.controller('plumbingController', ['$scope', '$routeParams', 'plumbingFactory', 'baseURL', function($scope, $routeParams, plumbingFactory, baseURL) {
-
-            $scope.baseURL = baseURL;
-            $scope.plumbing = plumbingFactory.query();
-
-}])
-
-.controller('riggingController', ['$scope', '$routeParams', 'riggingFactory', 'baseURL', function($scope, $routeParams, riggingFactory, baseURL) {
-
-            $scope.baseURL = baseURL;
-            $scope.rigging = riggingFactory.query();
+        divingFactory.query(
+            function (response) {
+                $scope.diving = response;
+                $scope.showDiving = true;
+            },
+            function (response) {
+                $scope.message = "Error: " + response.status + " " + response.statusText;
+            }
+          );
 
 }])
 
-.controller('safetyController', ['$scope', '$routeParams', 'safetyFactory', 'baseURL', function($scope, $routeParams, safetyFactory, baseURL) {
+.controller('electricalController', ['$scope', '$stateParams', 'electricalFactory', 'baseURL', function($scope, $stateParams, electricalFactory, baseURL) {
 
-            $scope.baseURL = baseURL;
-            $scope.safety = safetyFactory.query();
+        $scope.showElectrical = false;
+        $scope.message = "Loading ...";
+
+        electricalFactory.query(
+            function (response) {
+                $scope.electrical = response;
+                $scope.showElectrical = true;
+            },
+            function (response) {
+                $scope.message = "Error: " + response.status + " " + response.statusText;
+            }
+          );
+
+}])
+
+.controller('electronicController', ['$scope', '$stateParams', 'electronicFactory', 'baseURL', function($scope, $stateParams, electronicFactory, baseURL) {
+
+        $scope.showElectronic = false;
+        $scope.message = "Loading ...";
+
+        electronicFactory.query(
+            function (response) {
+                $scope.electronic = response;
+                $scope.showElectronic = true;
+            },
+            function (response) {
+                $scope.message = "Error: " + response.status + " " + response.statusText;
+            }
+          );
+
+}])
+
+.controller('fishingController', ['$scope', '$stateParams', 'fishingFactory', 'baseURL', function($scope, $stateParams, fishingFactory, baseURL) {
+
+        $scope.showFishing = false;
+        $scope.message = "Loading ...";
+
+        fishingFactory.query(
+            function (response) {
+                $scope.fishing = response;
+                $scope.showFishing = true;
+            },
+            function (response) {
+                $scope.message = "Error: " + response.status + " " + response.statusText;
+            }
+          );
+
+}])
+
+.controller('guidesController', ['$scope', '$stateParams', 'guidesFactory', 'baseURL', function($scope, $stateParams, guidesFactory, baseURL) {
+
+        $scope.showGuides = false;
+        $scope.message = "Loading ...";
+
+        guidesFactory.query(
+            function (response) {
+                $scope.guides = response;
+                $scope.showGuides = true;
+            },
+            function (response) {
+                $scope.message = "Error: " + response.status + " " + response.statusText;
+            }
+          );
+
+}])
+
+.controller('interiorController', ['$scope', '$stateParams', 'interiorFactory', 'baseURL', function($scope, $stateParams, interiorFactory, baseURL) {
+
+        $scope.showInterior = false;
+        $scope.message = "Loading ...";
+
+        interiorFactory.query(
+            function (response) {
+                $scope.interior = response;
+                $scope.showInterior = true;
+            },
+            function (response) {
+                $scope.message = "Error: " + response.status + " " + response.statusText;
+            }
+          );
+
+}])
+
+.controller('maintenanceController', ['$scope', '$stateParams', 'maintenanceFactory', 'baseURL', function($scope, $stateParams, maintenanceFactory, baseURL) {
+
+        $scope.showMaintenance = false;
+        $scope.message = "Loading ...";
+
+        maintenanceFactory.query(
+            function (response) {
+                $scope.maintenance = response;
+                $scope.showMaintenance = true;
+            },
+            function (response) {
+                $scope.message = "Error: " + response.status + " " + response.statusText;
+            }
+          );
+
+}])
+
+.controller('plumbingController', ['$scope', '$stateParams', 'plumbingFactory', 'baseURL', function($scope, $stateParams, plumbingFactory, baseURL) {
+
+        $scope.showPlumbing = false;
+        $scope.message = "Loading ...";
+
+        plumbingFactory.query(
+            function (response) {
+                $scope.plumbing = response;
+                $scope.showPlumbing = true;
+            },
+            function (response) {
+                $scope.message = "Error: " + response.status + " " + response.statusText;
+            }
+          );
+
+}])
+
+.controller('riggingController', ['$scope', '$stateParams', 'riggingFactory', 'baseURL', function($scope, $stateParams, riggingFactory, baseURL) {
+
+        $scope.showRigging = false;
+        $scope.message = "Loading ...";
+
+        riggingFactory.query(
+            function (response) {
+                $scope.rigging = response;
+                $scope.showRigging = true;
+            },
+            function (response) {
+                $scope.message = "Error: " + response.status + " " + response.statusText;
+            }
+          );
+
+}])
+
+.controller('safetyController', ['$scope', '$stateParams', 'safetyFactory', 'baseURL', function($scope, $stateParams, safetyFactory, baseURL) {
+
+        $scope.showSafety = false;
+        $scope.message = "Loading ...";
+
+        safetyFactory.query(
+            function (response) {
+                $scope.safety = response;
+                $scope.showSafety = true;
+            },
+            function (response) {
+                $scope.message = "Error: " + response.status + " " + response.statusText;
+            }
+          );
 
 }])
 ;

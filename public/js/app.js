@@ -1,10 +1,11 @@
 'use strict';
 
-angular.module('catlogApp', ['catlogApp.controllers','catlogApp.services','ui.router','ngResource'])
+angular.module('catlogApp', ['catlogApp.controllers','catlogApp.services','ui.router','ngResource', 'ngCart'])
 
 
-.config(function($stateProvider, $urlRouterProvider) {
+.config(function($stateProvider, $urlRouterProvider, $locationProvider) {
         $stateProvider
+
 
             // route for the home page
             .state('app', {
@@ -37,7 +38,7 @@ angular.module('catlogApp', ['catlogApp.controllers','catlogApp.services','ui.ro
                 }
             })
 
-            // route for the aboutus page
+            // route for the anchoring page
             .state('app.anchoring', {
                 url:'anchoring',
                 views: {
@@ -195,7 +196,8 @@ angular.module('catlogApp', ['catlogApp.controllers','catlogApp.services','ui.ro
 
 
             ;
-
+            // use the HTML5 History API
+        $locationProvider.html5Mode(true);
         $urlRouterProvider.otherwise('/');
     })
 ;

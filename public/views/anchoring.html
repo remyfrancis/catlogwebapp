@@ -1,8 +1,5 @@
 <!-- Page Content -->
 
-
-        
-
         <div class="col-md-9">
 
             <div class="row carousel-holder">
@@ -40,7 +37,8 @@
               <h2 class="page-header">Anchoring Section</h2>
               <p><label for="search">Search For</label> <span class="glyphicon glyphicon-search"></span> <input type="text" placeholder="Enter Search Term" ng-model="filtText" id="search"></p>
 
-                <div class="col-sm-4 col-lg-4 col-md-4" ng-repeat="item in anchoring | filter:filtText">
+                <div class="col-sm-4 col-lg-4 col-md-4" ng-repeat="item in anchoring[0].anchoring | filter:filtText">
+
                     <div class="thumbnail">
                         <img src="{{item.image}}" alt="">
                         <div class="caption">
@@ -51,8 +49,8 @@
                         <div class="ratings">
                             <ngcart-addtocart id="{{ item.id }}" name="{{ item.name }}" price="{{ item.price }}" quantity="1" quantity-max="30" data="item">Quote</ngcart-addtocart>
                             <p>
-                                <span>Duty Free EC$: {{item.price * 2.7 | currency}}</span><br>
-                                <span>Duty Paid EC$: {{item.price * 3 | currency}}</span>
+                                <span>Duty Free EC: {{item.price * 2.7 | currency}}</span><br>
+                                <span>Duty Paid EC: {{item.price * 3 | currency}}</span>
                             </p>
                         </div>
                     </div>

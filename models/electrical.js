@@ -25,6 +25,14 @@ var electricalSchema = new Schema({
         type: Number,
         required: true
     },
+    dfec: {
+        type: Number,
+        required: true
+    },
+    dpec: {
+        type: Number,
+        required: true
+    },
     category: {
         type: String,
         required: true
@@ -39,7 +47,7 @@ var electricalSchema = new Schema({
 
 // the schema is useless so far
 // we need to create a model using it
-var ElectricalItems = mongoose.model('Electrical', electricalSchema);
+var ElectricalItems = mongoose.model('Electrical', electricalSchema, 'electrical');
 
 // make this available to our Node applications
 module.exports = ElectricalItems;

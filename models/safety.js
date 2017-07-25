@@ -25,6 +25,14 @@ var safetySchema = new Schema({
         type: Number,
         required: true
     },
+    dfec: {
+        type: Number,
+        required: true
+    },
+    dpec: {
+        type: Number,
+        required: true
+    },
     category: {
         type: String,
         required: true
@@ -39,7 +47,7 @@ var safetySchema = new Schema({
 
 // the schema is useless so far
 // we need to create a model using it
-var SafetyItems = mongoose.model('Safety', safetySchema);
+var SafetyItems = mongoose.model('Safety', safetySchema, 'safety');
 
 // make this available to our Node applications
 module.exports = SafetyItems;

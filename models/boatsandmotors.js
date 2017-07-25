@@ -25,6 +25,14 @@ var boatsandmotorsSchema = new Schema({
         type: Number,
         required: true
     },
+    dfec: {
+        type: Number,
+        required: true
+    },
+    dpec: {
+        type: Number,
+        required: true
+    },
     category: {
         type: String,
         required: true
@@ -39,7 +47,7 @@ var boatsandmotorsSchema = new Schema({
 
 // the schema is useless so far
 // we need to create a model using it
-var BoatsandmotorsItems = mongoose.model('Boatsandmotors', boatsandmotorsSchema);
+var BoatsandmotorsItems = mongoose.model('Boatsandmotors', boatsandmotorsSchema, 'boatsandmotors');
 
 // make this available to our Node applications
 module.exports = BoatsandmotorsItems;

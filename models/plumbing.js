@@ -21,6 +21,14 @@ var plumbingSchema = new Schema({
         type: String,
         required: true
     },
+    dfec: {
+        type: Number,
+        required: true
+    },
+    dpec: {
+        type: Number,
+        required: true
+    },
     price: {
         type: Number,
         required: true
@@ -39,7 +47,7 @@ var plumbingSchema = new Schema({
 
 // the schema is useless so far
 // we need to create a model using it
-var PlumbingItems = mongoose.model('Plumbing', plumbingSchema);
+var PlumbingItems = mongoose.model('Plumbing', plumbingSchema, 'plumbing');
 
 // make this available to our Node applications
 module.exports = PlumbingItems;

@@ -6,3 +6,12 @@ body {
 a {
   color: #00B7FF;
 }
+
+.price p{
+    color: #e75b1e;
+    font-weight: 800;
+}
+
+.home p {
+    font-size: 5em;
+}

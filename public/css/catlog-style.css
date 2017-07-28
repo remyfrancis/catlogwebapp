@@ -1,0 +1,59 @@
+body {
+    padding-top: 70px;
+}
+
+.slide-image {
+    width: 100%;
+}
+
+.carousel-holder {
+    margin-bottom: 30px;
+}
+
+.carousel-control,
+.item {
+    border-radius: 4px;
+}
+
+.caption {
+    height: 130px;
+    overflow: auto;
+}
+
+.caption h4 {
+    white-space: normal;
+}
+
+.thumbnail img {
+    width: 100%;
+}
+
+.prices {
+    padding-right: 10px;
+    padding-left: 10px;
+    color: #85919E;
+    font-weight: 600;
+}
+
+.thumbnail {
+    padding: 0;
+    color: #85919E;
+}
+
+.thumbnail .caption-full {
+    padding: 9px;
+    color: #333;
+}
+
+.thumb img {
+    height: 150px;
+}
+
+.first p {
+    font-size: 5em;
+}
+
+
+footer {
+    margin: 50px 0;
+}

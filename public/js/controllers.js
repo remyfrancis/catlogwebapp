@@ -7,19 +7,16 @@ angular.module('catlogApp.controllers',[])
 .controller('anchoringController', ['$scope', '$stateParams', 'anchoringFactory', 'baseURL', function($scope, $stateParams, anchoringFactory, baseURL) {
 
 
-            $scope.showAnchoring = false;
-            $scope.message = "Loading ...";
-
+            $scope.spinneractive = true;
             anchoringFactory.query(
                 function (response) {
                     $scope.anchoring = response;
-                    $scope.showAnchoring = true;
+                    $scope.spinneractive = false;
                 },
                 function (response) {
                     $scope.message = "Error: " + response.status + " " + response.statusText;
                 }
               );
-
 
   }])
 
